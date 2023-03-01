@@ -17,8 +17,6 @@ resource "aws_instance" "db" {
     ami = "ami-00eeedc4036573771"
     instance_type = "t2.micro"
     security_groups = [aws_security_group.webtraffic.name]
-
-
     tags = {
         name = "DB Server"
     }
@@ -29,7 +27,6 @@ resource "aws_instance" "web" {
     instance_type = "t2.micro"
     security_groups = [aws_security_group.webtraffic.name]
     user_data = file("server-script.sh")
-
     tags = {
         name = "Web Server"
     }
@@ -69,7 +66,7 @@ resource "aws_security_group" "webtraffic"{
 
 
 output "PrivateIP" {
-    value = aws.instance.db.private_ip
+    value = aws_instance.db.private_ip
 }
 
 output "PublicIP" {
