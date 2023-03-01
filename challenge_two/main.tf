@@ -38,7 +38,7 @@ resource "aws_eip" "web_ip" {
 }
 
 
-resource "aws_security_group" "webtraffic"{
+resource "aws_security_group" "webtraffic" {
     name = "allow HTTPS"
 
     dynamic "ingress" {
