@@ -46,6 +46,8 @@ resource "aws_vpc" "spline_vpc" {
 
     tags = {
         Name = var.inputname
+        # could also do Name = var.list[0] # list are index 0
+        # maps are access similary, Name = var.mymap["key1"] 
     }
 }
 
